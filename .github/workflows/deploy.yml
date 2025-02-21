@@ -15,6 +15,6 @@ jobs:
       - name: Trigger another repo workflow
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
           repository: trinitytime/trinitytime.github.io
           event-type: trigger
