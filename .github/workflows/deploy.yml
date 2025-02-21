@@ -1,0 +1,24 @@
+name: Trigger Remote Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch event
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            await github.rest.actions.createDispatchEvent({
+              owner: 'trinitytime',
+              repo: 'trinitytime.github.io',
+              event_type: 'blog-event',
+              client_payload: {
+                message: 'Hello from another repo!'
+              }
+            });
