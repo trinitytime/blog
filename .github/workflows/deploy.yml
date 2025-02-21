@@ -17,4 +17,4 @@ jobs:
         with:
           token: ${{ secrets.PAT_TOKEN }}
           repository: trinitytime/trinitytime.github.io
-          event-type: trigger
+          event-type: blog-event
