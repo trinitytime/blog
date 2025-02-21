@@ -8,6 +8,9 @@ on:
 jobs:
   trigger-workflow:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      metadata: read
     steps:
       - name: Trigger another repo workflow
         uses: peter-evans/repository-dispatch@v1
